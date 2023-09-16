@@ -15,6 +15,21 @@ public class Sun {
         this.color = color;
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
 
     public void draw(Graphics2D g){
         Color oldColor = g.getColor();//восстановление изнач цвета
