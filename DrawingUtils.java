@@ -16,7 +16,6 @@ public class DrawingUtils {
             double y2 = y+r2* Math.sin(a);
             g.drawLine((int) x1,(int)y1, (int) x2,(int)y2);
 
-
         }
         g.drawOval(x - (r1 / 2), y - (r1 / 2), r1, r1);
         g.fillOval(x - (r1 / 2), y - (r1 / 2), r1, r1);

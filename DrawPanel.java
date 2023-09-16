@@ -1,12 +1,16 @@
 package Sem3Task1;
 
+import Sem3Task1.DrawingElements.Sun;
+
 import javax.swing.*;
 import java.awt.*;
 
 
 
 public class DrawPanel extends JPanel {
+    Sun sun1;
     public DrawPanel() {
+        sun1 = new Sun(200, 200, 150, 50, 10, Color.orange);
     }
 
     @Override
@@ -18,8 +22,8 @@ public class DrawPanel extends JPanel {
                 new float[]{0.2f, 0.7f},
                 new Color[]{Color.decode("#7FB4DC"), Color.decode("#D3F2FF")}));
         g.fillRect(0, 0, 800, 600);
-        DrawingUtils.drawSun(g, 200, 200, 150, 200, 10, Color.orange);
 
+        sun1.draw(g);
 
     }
 
