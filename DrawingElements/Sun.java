@@ -47,7 +47,7 @@ public class Sun {
         }
         g.drawOval(x - (r1 / 2), y - (r1 / 2), r1, r1);
         g.fillOval(x - (r1 / 2), y - (r1 / 2), r1, r1);
-
+        // g.rotate(Math.toRadians(90),400,300);
         g.setColor(oldColor);
     }
 
