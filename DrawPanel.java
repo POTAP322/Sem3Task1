@@ -1,9 +1,6 @@
 package Sem3Task1;
 
-import Sem3Task1.DrawingElements.BackGround;
-import Sem3Task1.DrawingElements.Sun;
-import Sem3Task1.DrawingElements.Tank;
-import Sem3Task1.DrawingElements.TankCanon;
+import Sem3Task1.DrawingElements.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,11 +8,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 
-
 public class DrawPanel extends JPanel {
     Sun sun1;
     Tank tank;
     TankCanon tankCanon;
+    AntiTankHedgehog antiTankHedgehog;
+    AntiTankHedgehog antiTankHedgehog2;
 
     public DrawPanel() {
 //        sun1 = new Sun(200, 200, 150, 50, 10, Color.green);
@@ -28,20 +26,20 @@ public class DrawPanel extends JPanel {
 //        });
     }
 
-
-
     @Override
     public void paint(Graphics gr) {
         super.paint(gr);
         Graphics2D g = (Graphics2D) gr;
         BackGround.draw(g);
-        tank = new Tank(0,0);
-        tank.draw((Graphics2D)gr);
-        tankCanon = new TankCanon(0,0);
+        tank = new Tank(0, 0);
+        tank.draw((Graphics2D) gr);
+        tankCanon = new TankCanon(0, 0);
         tankCanon.draw((Graphics2D) gr);
+        antiTankHedgehog = new AntiTankHedgehog(50, 465);
+        antiTankHedgehog.draw((Graphics2D) gr);
 
-
-
+        antiTankHedgehog2 = new AntiTankHedgehog(515, 423);
+        antiTankHedgehog2.draw((Graphics2D) gr);
     }
 
 }

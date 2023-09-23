@@ -3,7 +3,8 @@ package Sem3Task1.DrawingElements;
 import java.awt.*;
 
 public class TankCanon {
-    private int x,y;
+    private final int x;
+    private final int y;
 
     public TankCanon(int x, int y) {
         this.x = x;
@@ -14,17 +15,12 @@ public class TankCanon {
         return x;
     }
 
-    public void setX(int x) {
-        this.x = x;
-    }
 
     public int getY() {
         return y;
     }
 
-    public void setY(int y) {
-        this.y = y;
-    }
+
     public void draw(Graphics2D gr){
         int x = getX();
         int y = getY();
