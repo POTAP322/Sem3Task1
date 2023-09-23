@@ -65,7 +65,10 @@ public class BackGround {
         int[] x3 = {242, 90, 90, 250};
         int[] y3 = {250, 250, 264, 264};
         g.fillPolygon(x3, y3, x3.length);
-
+        //тени танка и ежей
+        g.fillOval(30,515,360,58);
+        g.fillOval(55,567,78,22);
+        g.fillOval(518,527,83,22);
         //ДВЕРЬ ОКНО
         g.setColor(Color.decode("#372B2F"));
         int[] x6 = {207, 207, 290, 290};
