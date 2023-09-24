@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class DrawPanel extends JPanel implements ActionListener {
+public class DrawPanel extends JPanel {
     Sun sun1;
     Tank tank;
     TankCanon tankCanon;
@@ -22,15 +22,20 @@ public class DrawPanel extends JPanel implements ActionListener {
 
     public DrawPanel() {
         tankCanon = new TankCanon(0, 0);
-        timer = new Timer(12,this);
-        //timer.start();
+        timer = new Timer(20, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                repaint();
+            }
+        });
+        timer.start();
         this.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                timer.start();
-
+                tankCanon.startAnimation();
             }
         });
+        //timer.start();
     }
 
     @Override
@@ -50,18 +55,5 @@ public class DrawPanel extends JPanel implements ActionListener {
         antiTankHedgehog2.draw((Graphics2D) gr);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if(tankCanon.TempValueX == tankCanon.endValueX){
-            while (tankCanon.TempValueX != tankCanon.startValueX){
-                tankCanon.setX(tankCanon.getX()+2);
-                tankCanon.TempValueX +=2;
-                timer.stop();
-            }
-        }
-        tankCanon.setX(tankCanon.getX()-4);
-        tankCanon.TempValueX -=4;
-        repaint();
-    }
 
 }

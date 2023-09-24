@@ -32,6 +32,7 @@ public class Tank {
             y1[i] += y;
         }
         gr.fillPolygon(x1, y1, x1.length);
+
         gr.setColor(Color.decode("#272727"));
         int[] x2 = {7, 13, 16, 75, 370, 385, 386, 397, 379, 52, 15, 6};
         int[] y2 = {470, 470, 480, 510, 510, 485, 481, 480, 460, 453, 459, 470};

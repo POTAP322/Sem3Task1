@@ -4,10 +4,13 @@ import java.awt.*;
 
 public class TankCanon {
     private int x;
-    public int startValueX;
-    public int endValueX = x-20;
-    public int TempValueX = x;
-    private final int y;
+    private int y;
+    public final int dx = 3;
+    public final int leftX = x-20;
+    public final int rightX = x;
+
+    private enum statusEnum {STOP, GOING_BACK, GOING_FORWARD};
+    private statusEnum status = statusEnum.STOP;
 
 
     public TankCanon(int x, int y) {
@@ -27,8 +30,14 @@ public class TankCanon {
     }
 
     public void draw(Graphics2D gr){
-        int x = getX();
-        int y = getY();
+        if(status == statusEnum.GOING_BACK){
+            x -= dx;
+            if(x <= leftX) status = statusEnum.GOING_FORWARD;
+        } else if(status == statusEnum.GOING_FORWARD){
+            x += dx;
+            if(x >= rightX) status = statusEnum.STOP;
+        }
+
         gr.setColor(Color.decode("#708090"));
         gr.fillRect(325+x,408+y,121,9);
 
@@ -37,7 +46,12 @@ public class TankCanon {
         gr.drawLine(324,408,324,416);
 
     }
-    public void shot(TankCanon tankCanon){
+
+    public void startAnimation(){
+        if(status == statusEnum.STOP) {
+            status = statusEnum.GOING_BACK;
+            System.out.println("начал анимацию");
+        }
     }
 
 
