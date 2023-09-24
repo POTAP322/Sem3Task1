@@ -21,8 +21,9 @@ public class DrawPanel extends JPanel {
     Timer timer;
 
     public DrawPanel() {
+
         tankCanon = new TankCanon(0, 0);
-        timer = new Timer(20, new ActionListener() {
+        timer = new Timer(5, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 repaint();
@@ -32,7 +33,7 @@ public class DrawPanel extends JPanel {
         this.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                tankCanon.startAnimation();
+                tankCanon.shoot();
             }
         });
         //timer.start();
