@@ -7,23 +7,30 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class DrawPanel extends JPanel {
+
+public class DrawPanel extends JPanel implements ActionListener {
     Sun sun1;
     Tank tank;
     TankCanon tankCanon;
     AntiTankHedgehog antiTankHedgehog;
     AntiTankHedgehog antiTankHedgehog2;
 
+    Timer timer;
+
     public DrawPanel() {
-//        sun1 = new Sun(200, 200, 150, 50, 10, Color.green);
-//        this.addMouseListener(new MouseAdapter() {
-//            @Override
-//            public void mouseClicked(MouseEvent e) {
-//                sun1.setX(sun1.getX()+10);
-//                repaint();
-//            }
-//        });
+        tankCanon = new TankCanon(0, 0);
+        timer = new Timer(12,this);
+        //timer.start();
+        this.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                timer.start();
+
+            }
+        });
     }
 
     @Override
@@ -33,13 +40,28 @@ public class DrawPanel extends JPanel {
         BackGround.draw(g);
         tank = new Tank(0, 0);
         tank.draw((Graphics2D) gr);
-        tankCanon = new TankCanon(0, 0);
+
         tankCanon.draw((Graphics2D) gr);
+
         antiTankHedgehog = new AntiTankHedgehog(50, 465);
         antiTankHedgehog.draw((Graphics2D) gr);
 
         antiTankHedgehog2 = new AntiTankHedgehog(515, 423);
         antiTankHedgehog2.draw((Graphics2D) gr);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if(tankCanon.TempValueX == tankCanon.endValueX){
+            while (tankCanon.TempValueX != tankCanon.startValueX){
+                tankCanon.setX(tankCanon.getX()+2);
+                tankCanon.TempValueX +=2;
+                timer.stop();
+            }
+        }
+        tankCanon.setX(tankCanon.getX()-4);
+        tankCanon.TempValueX -=4;
+        repaint();
     }
 
 }

@@ -78,7 +78,7 @@ public class BackGround {
         int[] y7 = {450, 450, 385, 383};
         g.fillPolygon(x7, y7, x7.length);
 
-        //КАРНИЗ И МЕЛЛКИЕ ДЕТАЛИ
+        //КАРНИЗ И МЕЛКИЕ ДЕТАЛИ
         g.setColor(Color.decode("#372B2F"));
         int[] x8 = {470, 295, 295, 460};
         int[] y8 = {380, 380, 374, 375};
