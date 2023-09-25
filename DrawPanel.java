@@ -21,11 +21,15 @@ public class DrawPanel extends JPanel {
     Timer timer;
 
     public DrawPanel() {
-
+        antiTankHedgehog = new AntiTankHedgehog(50, 465);
+        antiTankHedgehog2 = new AntiTankHedgehog(515, 423);
         tankCanon = new TankCanon(0, 0);
+        tank = new Tank(0, 0);
+
         timer = new Timer(5, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+
                 repaint();
             }
         });
@@ -44,15 +48,13 @@ public class DrawPanel extends JPanel {
         super.paint(gr);
         Graphics2D g = (Graphics2D) gr;
         BackGround.draw(g);
-        tank = new Tank(0, 0);
+
         tank.draw((Graphics2D) gr);
 
         tankCanon.draw((Graphics2D) gr);
 
-        antiTankHedgehog = new AntiTankHedgehog(50, 465);
         antiTankHedgehog.draw((Graphics2D) gr);
 
-        antiTankHedgehog2 = new AntiTankHedgehog(515, 423);
         antiTankHedgehog2.draw((Graphics2D) gr);
     }
 
