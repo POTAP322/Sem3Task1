@@ -5,12 +5,12 @@ import java.awt.*;
 public class AntiTankHedgehog {
     private final int x;
     private final int y;
-    final int[] x1 = {0, 9, 92, 83};
-    final int[] y1 = {20, 20, 118, 118};
-    final int[] x2 = {95, 106, 11, 0};
-    final int[] y2 = {38, 38, 104, 104};
-    final int[] x3 = {77, 86, 36, 25};
-    final int[] y3 = {8, 8, 122, 122};
+    private final int[] x1 = {0, 9, 92, 83};
+    private final int[] y1 = {20, 20, 118, 118};
+    private final int[] x2 = {95, 106, 11, 0};
+    private final int[] y2 = {38, 38, 104, 104};
+    private final int[] x3 = {77, 86, 36, 25};
+    private final int[] y3 = {8, 8, 122, 122};
 
     public AntiTankHedgehog(int x, int y) {
         this.x = x;
