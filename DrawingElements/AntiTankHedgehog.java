@@ -36,17 +36,29 @@ public class AntiTankHedgehog {
         }
         gr.fillPolygon(x1, y1, x1.length);
 
+        for (int i = 0; i < x1.length; i++) {
+            x1[i] -= x;
+            y1[i] -= y;
+        }
+
         for (int i = 0; i < x2.length; i++) {
             x2[i] += x;
             y2[i] += y;
         }
         gr.fillPolygon(x2, y2, x2.length);
-
+        for (int i = 0; i < x2.length; i++) {
+            x2[i] -= x;
+            y2[i] -= y;
+        }
         for (int i = 0; i < x3.length; i++) {
             x3[i] += x;
             y3[i] += y;
         }
         gr.fillPolygon(x3, y3, x3.length);
+        for (int i = 0; i < x3.length; i++) {
+            x3[i] -= x;
+            y3[i] -= y;
+        }
     }
 
 }
